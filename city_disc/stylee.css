@@ -1,0 +1,283 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.container
+{
+    width: 100%;
+    height: 100vh;
+    background-image:  url(timg/001.jpg);
+    background-position: center;
+    background-size: cover;
+    padding-left: 8%;
+    padding-right: 8%;
+    box-sizing: border-box;
+}
+.navbar
+{
+    height: 12%;
+    display: flex;
+    align-items: center;
+}
+/*---LOGO---*/
+.menu-icon
+{
+    width: 30px;
+    cursor: pointer;
+    margin-left: 40px;
+}
+nav
+{
+    flex:1;
+    text-align:center;
+}
+nav ul li
+{
+    list-style: none;
+    display: inline-block;
+    margin-left: 60px;
+}
+nav ul li a
+{
+    text-decoration: none;
+    color: #fff;
+    font-size: 13px;
+}
+.news
+{
+    color:#fff;
+    border-bottom: 2px solid #FF0000;
+    font-weight: 300;
+    
+}
+.row
+{
+    display: flex;
+    height: 88%;
+    align-items: center;
+}
+.col
+{
+flex-basis: 50%;
+}
+h1
+{
+    color: #fff;
+    font-size: 100px;
+    
+}
+p
+{
+    color: #fff;
+    font-size: 15px;
+    line-height: 15px;
+}
+.sct-clk
+{
+    margin-top: 5%;
+}
+.row
+{
+     display: flex;
+    justify-content: space-between;
+}
+.col
+{
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.col h1
+{
+    font-weight:400;
+    color: darkslategray;
+    font-size:60px;
+    margin-left:170px;
+    margin-top: -40%;
+}
+.col p
+{
+    color: currentColor;
+    margin-top: 30px;
+    margin-left:30px;
+    font-size: 20px;
+}
+.col img
+{
+    border-radius: 10px;
+    
+}
+.col h1
+{
+    font-weight:400;
+    color: darkslategray;
+    font-size:60px;
+    margin-left:170px;
+    margin-top: -40%;
+}
+.col p
+{
+    color: currentColor;
+    margin-top: 30px;
+    margin-left:30px;
+    font-size: 20px;
+}
+.col img
+{
+    border-radius: 10px;
+    
+}
+ .col h1
+{
+    font-weight:400;
+    color: darkslategray;
+    font-size:60px;
+    margin-left:170px;
+    margin-top: -40%;
+    text-align: center;
+}
+.col p
+{
+    color: currentColor;
+    margin-top: 30px;
+    margin-left:30px;
+    font-size: 20px;
+    text-align:right;
+    
+}
+.col img
+{
+    border-radius: 10px;
+    
+}
+.map
+{
+    margin: 100px auto;
+    width: 50%;
+    height: 7%;
+    background-image: url(timg/map.jpg);
+    background-position: center;
+    background-size:cover;
+    border-radius: 10px;
+    text-align: center;
+    padding: 100px 0;
+    border: 2px solid  silver;
+    font-weight: 800;
+}
+.btnMAP
+{
+    display: inline-block;
+    text-decoration: none;
+    color: darkslategrey;
+    border: 2px solid ;
+    padding: 12px 34px;
+    font-size: 13px;
+    background: transparent;
+    position: relative;
+    cursor: pointer;
+    border-radius: 10px;
+}
+.btnMAP:hover
+{
+    border: 1px solid  #2691d9;
+    background:  #2691d9;
+    transition: 0.5s;
+    border-radius: 10px;
+}
+@media(max-width:70px)
+{
+    btnMAP
+    {
+        font-size: 24px;
+    }
+}   
+
+.text h2
+{
+    margin-top: 200px;
+ font-size: 42px; 
+    border-bottom: 2px solid silver;
+
+}
+.text p
+{
+    color: black;
+    font-size: 16px;
+}
+.img
+{
+    max-width: 400px;
+    height: 500px;
+    float: left;
+    border: 3px solid  silver;
+    border-radius: 10px;
+    margin-right: 20px;
+}
+.sec3
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    
+}
+.wrapper
+{
+    /* margin: 10px auto; */
+    width: 70%;
+    
+}
+.team-row{
+    display: flex;
+    justify-content: space-between;
+   margin-top: 50px;
+}
+
+.member{
+    flex: 1 1 250px;
+    margin: 20px;
+    text-align: center;
+    padding: 20px 10px;
+    cursor: pointer;
+    max-width: 300px;
+    transition: all 0.3s;
+}
+
+.member:hover{
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transform: translateY(-20px);
+}
+
+.member img{
+    display: block;
+    width: 120px; height: 120px;
+    object-fit: cover;
+    border:2px solid darkslategrey;
+    border-radius: 10%;
+    margin: 0 auto;
+}
+
+.member h2{
+    text-transform: uppercase;
+    font-size: 24px;
+    color: darkslategrey ;
+    margin: 15px 0;
+}
+
+.member p{
+    font-size: 15px;
+    color: #838383;
+    line-height: 1.6;
+}
+.ourteam h1 
+{
+    border-bottom: 1px solid darkslategrey;
+    margin-top: 20px;
+    text-align:center;
+    color: black;
+}
+.ourteam p
+{
+    margin-top: 20px;
+    text-align:center;
+    color: black;
+}
