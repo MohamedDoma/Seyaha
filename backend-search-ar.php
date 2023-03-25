@@ -11,7 +11,7 @@ if($link === false){
 if(isset($_REQUEST["term"])){
     // Prepare a select statement
     $Name = $_REQUEST["term"];
-    $sql = "SELECT * FROM city WHERE city_name LIKE '%$Name%'";
+    $sql = "SELECT * FROM city WHERE city_name_ar LIKE '%$Name%'";
     
     if($stmt = mysqli_prepare($link, $sql)){
         // Bind variables to the prepared statement as parameters
@@ -28,10 +28,10 @@ if(isset($_REQUEST["term"])){
             if(mysqli_num_rows($result) > 0){
                 // Fetch result rows as an associative array
                 while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
-                    echo "<a style='text-decoration:none' href='city_disc/city.php?id=$row[city_id]'> <p>" . $row["city_name"] . " </p> </a>";
+                    echo "<a style='text-decoration:none' href='city_disc/city.php?id=$row[city_id]'> <p>" . $row["city_name_ar"] . " </p> </a>";
                 }
             } else{
-                echo "<p>No matches found</p>";
+                echo "<p>لا يوجد نتائج</p>";
             }
         } else{
             echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);

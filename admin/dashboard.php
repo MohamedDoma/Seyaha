@@ -6,16 +6,14 @@ session_start();
 
 $user_id = $_SESSION['user_id'];
 
-if(!isset($user_id))
-{
-    header('location:../login.php');
+if (!isset($user_id)) {
+    header('location:../login-reg-img/login.php');
 }
 
-if (isset($_GET['logout']))
-{
+if (isset($_GET['logout'])) {
     unset($user_id);
     session_destroy();
-    header('location:../login.php');
+    header('location:../login-reg-img/login.php');
 }
 
 ?>
@@ -117,7 +115,7 @@ if (isset($_GET['logout']))
 
             <ul class="logout">
                 <li>
-                   <a href="#">
+                   <a href="dashboard.php?logout=<?php echo $user_id; ?>">
                          <i class="fa fa-power-off fa-2x"></i>
                         <span class="nav-text">
                             Logout

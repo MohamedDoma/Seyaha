@@ -77,28 +77,52 @@ $result = $conn->query($sql);
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
     <script>
-$(document).ready(function(){
-    $('.sbox input[type="text"]').on("keyup input", function(){
-        /* Get input value on change */
-        var inputVal = $(this).val();
-        var resultDropdown = $(this).siblings(".result");
-        if(inputVal.length){
-            $.get("backend-search.php", {term: inputVal}).done(function(data){
-                // Display the returned data in browser
-                resultDropdown.html(data);
+        $(document).ready(function(){
+            $('.sbox input[type="text"]').on("keyup input", function(){
+                /* Get input value on change */
+                var inputVal = $(this).val();
+                var resultDropdown = $(this).siblings(".result");
+                if(inputVal.length){
+                    $.get("backend-search.php", {term: inputVal}).done(function(data){
+                        // Display the returned data in browser
+                        resultDropdown.html(data);
+                    });
+                } else{
+                    resultDropdown.empty();
+                }
             });
-        } else{
-            resultDropdown.empty();
-        }
-    });
-    
-    // Set search input value on click of result item
-    $(document).on("click", ".result p", function(){
-        $(this).parents(".sbox").find('input[type="text"]').val($(this).text());
-        $(this).parent(".result").empty();
-    });
-});
-</script>
+        
+        // Set search input value on click of result item
+            $(document).on("click", ".result p", function(){
+                $(this).parents(".sbox").find('input[type="text"]').val($(this).text());
+                $(this).parent(".result").empty();
+            });
+        });
+    </script>
+
+<script>
+        $(document).ready(function(){
+            $('.sbox input[type="text"]').on("keyup input", function(){
+                /* Get input value on change */
+                var inputVal = $(this).val();
+                var resultDropdown = $(this).siblings(".result-ar");
+                if(inputVal.length){
+                    $.get("backend-search-ar.php", {term: inputVal}).done(function(data){
+                        // Display the returned data in browser
+                        resultDropdown.html(data);
+                    });
+                } else{
+                    resultDropdown.empty();
+                }
+            });
+        
+        // Set search input value on click of result item
+            $(document).on("click", ".result-ar p", function(){
+                $(this).parents(".sbox").find('input[type="text"]').val($(this).text());
+                $(this).parent(".result-ar").empty();
+            });
+        });
+    </script>
 
 
     <title> tourist website</title>
@@ -143,6 +167,33 @@ $(document).ready(function(){
         color: #000;
     }
     .result p:hover{
+        background: #f2f2f2;
+    }
+
+    .result-ar{
+        text-align: right;
+        position: absolute;        
+        z-index: 999;
+        top: 100%;
+        left: 0;
+        background-color: #fff;
+        color: #000;
+    }
+    .sbox input[type="text"], .result-ar{
+        width: 100%;
+        box-sizing: border-box;
+        color: #000;
+    }
+    /* Formatting result items */
+    .result-ar p{
+        margin: 0;
+        padding: 7px 10px;
+        border: 1px solid #CCCCCC;
+        border-top: none;
+        cursor: pointer;
+        color: #000;
+    }
+    .result-ar p:hover{
         background: #f2f2f2;
     }
     </style>
@@ -238,9 +289,19 @@ $(document).ready(function(){
                 </div> -->
 
                 <div class="sbox">
-        <input class="inp" style="color: white;" type="text" autocomplete="off" placeholder="Search country..." />
-        <div class="result"></div>
-    </div>
+                    <?php
+                        if ($fetch['language'] == '1')
+                        {
+                            echo "<input class='inp' style='color: white; text-align:right;' type='text' autocomplete='off' placeholder='إبحث عن مدينة' />";
+                            echo "<div class='result-ar'></div>";
+                        }
+                        else {
+                            echo "<input class='inp' style='color: white;' type='text' autocomplete='off' placeholder='Search country...' />";
+                            echo "<div class='result'></div>";
+                        }
+                    ?>
+                    
+                </div>
             </div>
             <!---second col--->
             <div class="col">
