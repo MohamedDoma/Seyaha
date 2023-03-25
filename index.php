@@ -32,6 +32,23 @@ $result = $conn->query($sql);
 ?>
 
 <?php
+    if (isset($_POST['submitll']))
+    {
+        $typell = mysqli_real_escape_string($conn, $_POST['typell']);
+
+        $update = "UPDATE users SET language = '$typell'
+        WHERE users_id = '$fetch[users_id]'";
+
+        $update_run = mysqli_query($conn, $update);
+
+        if ($update)
+        {
+            header('location:index.php');
+        }
+    }
+?>
+
+<?php
     if (isset($_POST['submit']))
     {
         $type = mysqli_real_escape_string($conn, $_POST['type']);
@@ -137,6 +154,30 @@ $(document).ready(function(){
             <!-- <button data-close-button class="close-button">&times;</button> -->
 
     <?php
+    if ($fetch['language'] == '0') {
+        echo "<div class='modal active' id='modal'>";
+            echo "<div class='modal-header'>";
+                echo "<div class='title'>Welcome To Libya</div>";
+            echo "</div>";
+
+            echo "<div class='modal-body'>";
+                echo "<form method='post'>";
+                    echo "<p>Language / اللغة</p>";
+
+                    echo "<input type='radio' id='arabic' name='typell' value='1'>";
+                    echo "<label for='arabic'> العربية</label><br>";
+
+                    echo "<input type='radio' id='english' name='typell' value='2'>";
+                    echo "<label for='english'> English</label><br>";
+                    
+                    echo "<br>";
+                    
+                    echo "<input type='submit' name='submitll' value='Submit' class='btn'>";
+                echo "</form>";
+            echo "</div>";
+        echo "</div>";
+        echo "<div id='overlay' class='active'></div>";
+    } else if ($fetch['language'] == '1' OR $fetch['language'] == '2') {
     if ($fetch['type_city'] == '0') {
         echo "<div class='modal active' id='modal'>";
             echo "<div class='modal-header'>";
@@ -164,6 +205,7 @@ $(document).ready(function(){
         echo "</div>";
         echo "<div id='overlay' class='active'></div>";
     }
+}   
     ?>
 
     <div class="container">
@@ -175,8 +217,8 @@ $(document).ready(function(){
                     <li><a href="tripoli/index.html">TRIPOLI</a></li>
                     <li><a href="#aboutus">ABOUT US</a></li>
                     <li><a href="#CATEGORIES">CATEGORIES</a></li>
-                    <!-- <li><a href="login-reg-img/login.php">LOG IN</a></li> -->
                     <li><a class="news" href="NEWS/index.php">NEWS</a></li>
+                    <li><a href="index.php?logout=<?php echo $user_id; ?>">LOG OUT</a></li>
                 </ul>
             </nav>
             <img src="img/menu.png" class="menu-icon">
