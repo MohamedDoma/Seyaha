@@ -345,7 +345,7 @@ $(document).ready(function(){
     </section>
 
     <!-----footer---->
-    <div class="about-section">
+    <div class="about-section" id="aboutus">
         <div class="inner-container">
             <h1>About Us</h1>
             <p class="text">

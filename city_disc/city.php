@@ -66,13 +66,12 @@ include '../config.php';
    <div class="navbar">
         <!----imglogo---->
         <nav id="navbar">
-        <ul id="menu">
-            <li><a href="../index.php">HOME</a></li>
-            <li><a href="tripoli/index.html">TRIPOLI</a></li>
-            <li><a href="#aboutus">ABOUT US</a></li>
-            <li><a href="#CATEGORIES">CATEGORIES</a></li>
-            <!-- <li><a href="login-reg-img/index.html">LOG IN</a></li> -->
-            <li><a class="news" href="NEWS/index.html">NEWS</a></li>
+            <ul id="menu">
+                <li><a href="../index.php">HOME</a></li>
+                <li><a href="../tripoli/index.html">TRIPOLI</a></li>
+                <li><a href="../index.php#aboutus">ABOUT US</a></li>
+                <li><a href="../index.php#CATEGORIES">CATEGORIES</a></li>
+                <li><a class="news" href="../NEWS/index.php">NEWS</a></li>
             </ul>
         </nav>
         <img src="timg/menu.png" class="menu-icon">
