@@ -268,6 +268,7 @@ display: none;
                     <th>Name</th>
                     <th>إسم المدينة</th>
                     <th>Type</th>
+                    <th>Status</th>
                     <th style="width: 10%;">Actions</th>
                 </tr>
             </thead>
@@ -291,12 +292,14 @@ display: none;
                         $city_name = $row['city_name'];
                         $city_name_ar = $row['city_name_ar'];
                         $city_type = $row['city_type'];
+                        $city_status = $row['city_status'];
                 ?>
 
                 <tr>
                     <td><?php echo $i++ ?></td>
                     <td><?php echo $city_name; ?></td>
                     <td><?php echo $city_name_ar; ?></td>
+
                     <td><?php 
                         if ($city_type == 1)
                         {
@@ -311,6 +314,18 @@ display: none;
                             echo "منطقة ساحلية";
                         }
                     ?></td>
+
+                    <td><?php
+                        if ($city_status == 1)
+                        {
+                            echo "Publish";
+                        }
+                        else
+                        {
+                            echo "UnPublish";
+                        }
+                    ?></td>
+
                     <td><?php echo "<a href='edit_city.php?id=$row[city_id]'><i class='fa-solid fa-pen-to-square'></a>" ?></td>
                 </tr>
             <?php } ?>

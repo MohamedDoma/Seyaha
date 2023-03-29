@@ -12,6 +12,7 @@ if (isset($_POST['submit']))
     $city_caption_ar = $_POST['city_caption_ar'];
     $city_location = $_POST['city_location'];
     $type = $_POST['type'];
+    $status = $_POST['status'];
 
     $image_size = $_FILES['image']['size'];
 
@@ -26,19 +27,22 @@ if (isset($_POST['submit']))
     if(!isset($image) || trim($image) == '')
     {
         $update = "UPDATE city SET city_name = '$city_name', city_name_ar = '$city_name_ar', city_caption = '$city_caption',
-        city_caption_ar = '$city_caption_ar', city_location = '$city_location', city_cover = '$cover', city_type = '$type'
+        city_caption_ar = '$city_caption_ar', city_location = '$city_location', city_cover = '$cover', city_type = '$type',
+        city_status = '$status'
         WHERE city_id= '$city_id'";
     }
     else if(!isset($cover) || trim($cover) == '')
     {
         $update = "UPDATE city SET city_name = '$city_name', city_name_ar = '$city_name_ar', city_caption = '$city_caption',
-        city_caption_ar = '$city_caption_ar', city_location = '$city_location', city_img = '$image', city_type = '$type'
+        city_caption_ar = '$city_caption_ar', city_location = '$city_location', city_img = '$image', city_type = '$type',
+        city_status = '$status'
         WHERE city_id= '$city_id'";
     }
     else
     {
         $update = "UPDATE city SET city_name = '$city_name', city_name_ar = '$city_name_ar', city_caption = '$city_caption',
-        city_caption_ar = '$city_caption_ar', city_location = '$city_location', city_img = '$image', city_cover = '$cover'
+        city_caption_ar = '$city_caption_ar', city_location = '$city_location', city_img = '$image', city_cover = '$cover',
+        city_status = '$status'
         WHERE city_id= '$city_id'";
     }
 
@@ -183,6 +187,36 @@ if (isset($_POST['submit']))
             ?>
 
             <input hidden type="text" name="user_type" value="1">
+
+            <select name="status" class="sa from-control" required>
+
+            <?php
+            if ($city['city_status'] == '1')
+            {
+                $x = "Publish";
+            }
+            else if ($city['city_status'] == '0')
+            {
+                $x = "UnPublish";
+            }
+            ?>
+
+                <option selected value="<?php echo $city['city_status'] ?>"><?php echo $x ?></option>
+
+            <?php
+            if ($city['city_status'] == '1')
+            {
+                echo "<option value='0'>UnPublish</option>";
+            }
+            else if ($city['city_status'] == '0')
+            {
+                echo "<option value='1'>Publish</option>";
+            }
+            ?>                
+            </select>
+
+            <br>
+            <br>
 
             <select name="type" class="sa from-control" required>
 

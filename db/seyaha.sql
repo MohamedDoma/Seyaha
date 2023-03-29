@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 23, 2023 at 12:08 AM
+-- Generation Time: Mar 29, 2023 at 11:26 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -81,17 +81,20 @@ CREATE TABLE `city` (
   `city_img` varchar(255) NOT NULL,
   `city_cover` varchar(255) NOT NULL,
   `city_location` varchar(255) NOT NULL,
-  `city_type` tinyint(255) NOT NULL
+  `city_type` tinyint(255) NOT NULL,
+  `city_status` tinyint(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `city`
 --
 
-INSERT INTO `city` (`city_id`, `city_name`, `city_name_ar`, `city_caption`, `city_caption_ar`, `city_img`, `city_cover`, `city_location`, `city_type`) VALUES
-(9, 'Ghadames', 'غدامس', 'Country', 'مدينة', 'Ghadames2.jpg', '65144.jpg', 'https://goo.gl/maps/KKsjyjGehuzVcJaz5', 1),
-(10, 'Benghazi', 'بنغازي', 'bb', 'مدينة', 'Benghazi2.jpg', 'images.jpeg', 'https://goo.gl/maps/DdyJP3rEqVmPUeto9', 2),
-(11, 'Tripoly', 'يللا', 'skdfu', 'سيتؤتتلانم', 'FullLogo.jpg', '', 'https://goo.gl/maps/DdyJP3rEqVmPUeto9', 1);
+INSERT INTO `city` (`city_id`, `city_name`, `city_name_ar`, `city_caption`, `city_caption_ar`, `city_img`, `city_cover`, `city_location`, `city_type`, `city_status`) VALUES
+(9, 'Ghadames', 'غدامس', 'Country', 'مدينة', 'Ghadames2.jpg', '65144.jpg', 'https://goo.gl/maps/KKsjyjGehuzVcJaz5', 1, 1),
+(10, 'Benghazi', 'بنغازي', 'bb', 'مدينة', 'Benghazi2.jpg', 'images.jpeg', 'https://goo.gl/maps/DdyJP3rEqVmPUeto9', 2, 0),
+(11, 'Tripoly', 'يللا', 'skdfu', 'سيتؤتتلانم', 'FullLogo.jpg', '', 'https://goo.gl/maps/DdyJP3rEqVmPUeto9', 1, 0),
+(12, 'dsc', 'sdc', 'sdfc', 'sdv', 'Ghadames2.jpg', '', 'sdvsd', 1, 0),
+(13, 'sdcds', 'sdvsdv', 'sdvsd', 'sdvsd', 'Drivetrain movement (1).png', 'Drivetrain movement.png', 'sdvdsv', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -210,7 +213,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`users_id`, `users_name`, `users_email`, `users_password`, `users_type`, `type_city`, `language`) VALUES
 (2, 'nn', 'nn@gmail.com', '202cb962ac59075b964b07152d234b70', 1, 1, 1),
-(3, 'user', 'user@user.user', '202cb962ac59075b964b07152d234b70', 1, 2, 2);
+(3, 'user', 'user@user.user', '202cb962ac59075b964b07152d234b70', 1, 0, 0),
+(4, 'vv', 'vv@gmail.com', '202cb962ac59075b964b07152d234b70', 1, 2, 2);
 
 --
 -- Indexes for dumped tables
@@ -284,7 +288,7 @@ ALTER TABLE `cafe`
 -- AUTO_INCREMENT for table `city`
 --
 ALTER TABLE `city`
-  MODIFY `city_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `city_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `city_info`
@@ -314,7 +318,7 @@ ALTER TABLE `news`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `users_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `users_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

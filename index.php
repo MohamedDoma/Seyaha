@@ -27,7 +27,7 @@ if (mysqli_num_rows($select1) > 0) {
 ?>
 
 <?php
-$sql = "SELECT * FROM city WHERE city_type = $fetch[type_city]";
+$sql = "SELECT * FROM city WHERE city_type = $fetch[type_city] AND city_status = 1";
 $result = $conn->query($sql);
 ?>
 
@@ -199,6 +199,7 @@ $result = $conn->query($sql);
     </style>
 
     <script defer src="script.js"></script>
+    <script src="https://kit.fontawesome.com/b3be9c9115.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -228,35 +229,66 @@ $result = $conn->query($sql);
             echo "</div>";
         echo "</div>";
         echo "<div id='overlay' class='active'></div>";
-    } else if ($fetch['language'] == '1' OR $fetch['language'] == '2') {
-    if ($fetch['type_city'] == '0') {
-        echo "<div class='modal active' id='modal'>";
-            echo "<div class='modal-header'>";
-                echo "<div class='title'>Welcome To Libya</div>";
+    } else if ($fetch['language'] == '1') {
+        if ($fetch['type_city'] == '0') {
+            echo "<div class='modal active' id='modal'>";
+                echo "<div class='modal-header'>";
+                    echo "<div class='title'>Welcome To Libya</div>";
+                echo "</div>";
+
+                echo "<div class='modal-body'>";
+                    echo "<form method='post'>";
+                        echo "<p>ما هو صنف المدينة الذي تفضله؟</p>";
+
+                        echo "<input type='radio' id='mountain' name='type' value='1'>";
+                        echo "<label for='mountain'> مناطق جبلية</label><br>";
+
+                        echo "<input type='radio' id='desert' name='type' value='2'>";
+                        echo "<label for='desert'> مناطق صحراوية</label><br>";
+
+                        echo "<input type='radio' id='coastal' name='type' value='3'>";
+                        echo "<label for='coastal'> مناطق ساحلية</label><br>";
+                        
+                        echo "<br>";
+                        
+                        echo "<input type='submit' name='submit' value='Submit' class='btn'>";
+                    echo "</form>";
+                echo "</div>";
             echo "</div>";
 
-            echo "<div class='modal-body'>";
-                echo "<form method='post'>";
-                    echo "<p>ما هو صنف المدينة الذي تفضله؟</p>";
+            echo "<div id='overlay' class='active'></div>";
+        }
+    }   
+    else if ($fetch['language'] == '2') {
+        if ($fetch['type_city'] == '0') {
+            echo "<div class='modal active' id='modal'>";
+                echo "<div class='modal-header'>";
+                    echo "<div class='title'>Welcome To Libya</div>";
+                echo "</div>";
 
-                    echo "<input type='radio' id='mountain' name='type' value='1'>";
-                    echo "<label for='mountain'> مناطق جبلية</label><br>";
+                echo "<div class='modal-body'>";
+                    echo "<form method='post'>";
+                        echo "<p>What type of city do you prefer?</p>";
 
-                    echo "<input type='radio' id='desert' name='type' value='2'>";
-                    echo "<label for='desert'> مناطق صحراوية</label><br>";
+                        echo "<input type='radio' id='mountain' name='type' value='1'>";
+                        echo "<label for='mountain'> mountainous areas</label><br>";
 
-                    echo "<input type='radio' id='coastal' name='type' value='3'>";
-                    echo "<label for='coastal'> مناطق ساحلية</label><br>";
-                    
-                    echo "<br>";
-                    
-                    echo "<input type='submit' name='submit' value='Submit' class='btn'>";
-                echo "</form>";
+                        echo "<input type='radio' id='desert' name='type' value='2'>";
+                        echo "<label for='desert'> desert areas</label><br>";
+
+                        echo "<input type='radio' id='coastal' name='type' value='3'>";
+                        echo "<label for='coastal'> coastal areas</label><br>";
+                        
+                        echo "<br>";
+                        
+                        echo "<input type='submit' name='submit' value='Submit' class='btn'>";
+                    echo "</form>";
+                echo "</div>";
             echo "</div>";
-        echo "</div>";
-        echo "<div id='overlay' class='active'></div>";
-    }
-}   
+
+            echo "<div id='overlay' class='active'></div>";
+        }
+    }   
     ?>
 
     <div class="container">
@@ -440,6 +472,13 @@ $result = $conn->query($sql);
             </div>
         </div>
     </section>
+
+    <div style="display: flex; flex-direction: row; justify-content: space-evenly; align-items: center; margin-bottom: 3%; font-size: 50px;">
+        <a href="https://facebook.com"><i class="fa-brands fa-square-facebook" style="color: #3b5998;"></i></a>
+        <a href="https://youtube.com"><i class="fa-brands fa-youtube" style="color: #ff0000;"></i></a>
+        <a href="https://instagram.com"><i class="fa-brands fa-instagram" style="color: #fa7e1e;"></i></a>
+        <a href="https://twitter.com"><i class="fa-brands fa-twitter" style="color: #00acee;"></i></a>
+    </div>
 </body>
 
 </html>
