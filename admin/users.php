@@ -266,6 +266,7 @@ display: none;
                     <th style="width: 7%;">NO.</th>
                     <th style="width: 40%;">Name</th>
                     <th style="width: 40%;">Email</th>
+                    <th style="width: 40%;">التصنيف</th>
                 </tr>
             </thead>
             <tbody>
@@ -287,12 +288,27 @@ display: none;
                         $users_id = $row['users_id'];
                         $users_name = $row['users_name'];
                         $users_email = $row['users_email'];
+                        $type_city = $row['type_city'];
                 ?>
 
                 <tr>
                     <td><?php echo $i++ ?></td>
                     <td><?php echo $users_name; ?></td>
                     <td><?php echo $users_email; ?></td>
+                    <td><?php 
+                        if ($type_city == 1)
+                        {
+                            echo "منطقة جبلية";
+                        }
+                        else if ($type_city == 2)
+                        {
+                            echo "منطقة صحراوية";
+                        }
+                        else if ($type_city == 3)
+                        {
+                            echo "منطقة ساحلية";
+                        }
+                    ?></td>
                 </tr>
             <?php } ?>
             </tbody>
