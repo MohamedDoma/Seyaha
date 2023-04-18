@@ -32,9 +32,21 @@ include '../config.php';
 ?>
 
 <?php
+$city_idd = $_GET['id'];
+$query_pag_data111 = "SELECT * FROM city WHERE city_id = $city_idd";
+$result_pag_data111 = mysqli_query($conn, $query_pag_data111);
+
+$data = mysqli_fetch_assoc($result_pag_data111);
+$views = $data['views'] + 1;
+$count = "UPDATE `city` SET views='{$views}' WHERE city_id = '{$city_idd}'";
+$query_count=mysqli_query($conn, $count);
+?>
+
+<?php
     $city_id = $_GET['id'];
     $query_pag_data1 = "SELECT * FROM city WHERE city_id = $city_id";
     $result_pag_data1 = mysqli_query($conn, $query_pag_data1);
+
     while($row = mysqli_fetch_assoc($result_pag_data1))
     $city_name = $row['city_name'];
 {

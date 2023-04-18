@@ -38,8 +38,8 @@ if (isset($_POST['submit']))
         else
         {
             $insert = mysqli_query($conn, "INSERT INTO `city` 
-            (city_name, city_name_ar, city_caption, city_caption_ar, city_location, city_img, city_cover, city_type, city_status) VALUE
-            ('$city_name', '$city_name_ar', '$city_caption', '$city_caption_ar', '$city_location','$image', '$cover', '$type', '$status')")
+            (city_name, city_name_ar, city_caption, city_caption_ar, city_location, city_img, city_cover, city_type) VALUE
+            ('$city_name', '$city_name_ar', '$city_caption', '$city_caption_ar', '$city_location','$image', '$cover', '$type')")
             or die('query failed');
 
             if ($insert)
@@ -170,12 +170,6 @@ if (isset($_POST['submit']))
             ?>
 
             <input hidden type="text" name="user_type" value="1">
-
-            <select name="status" class="sa from-control" required>
-                <option value="" selected="selected">-- Select Status --</option>
-                <option value="1">Publish</option>
-                <option value="0">UnPublish</option>
-            </select>
 
             <div class="txt_field">
                 <input type="text" name="city_name" required>

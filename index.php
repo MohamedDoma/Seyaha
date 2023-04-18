@@ -27,7 +27,7 @@ if (mysqli_num_rows($select1) > 0) {
 ?>
 
 <?php
-$sql = "SELECT * FROM city WHERE city_type = $fetch[type_city] AND city_status = 1";
+$sql = "SELECT * FROM city WHERE city_type = $fetch[type_city] ORDER BY views DESC LIMIT 4";
 $result = $conn->query($sql);
 ?>
 
