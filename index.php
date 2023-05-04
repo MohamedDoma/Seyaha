@@ -73,6 +73,7 @@ $result = $conn->query($sql);
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
@@ -475,9 +476,9 @@ $result = $conn->query($sql);
 
     <div style="display: flex; flex-direction: row; justify-content: space-evenly; align-items: center; margin-bottom: 3%; font-size: 50px;">
         <a href="https://facebook.com"><i class="fa-brands fa-square-facebook" style="color: #3b5998;"></i></a>
+        <a href="https://google.com"><i class="fa-brands fa-google" style="color: #4285f4;"></i></a>
         <a href="https://youtube.com"><i class="fa-brands fa-youtube" style="color: #ff0000;"></i></a>
-        <a href="https://instagram.com"><i class="fa-brands fa-instagram" style="color: #fa7e1e;"></i></a>
-        <a href="https://twitter.com"><i class="fa-brands fa-twitter" style="color: #00acee;"></i></a>
+        <a href="https://www.tripadvisor.com/"><img src="img/trip.png" style="width: 45px; margin: 0; padding: 0;"></a>
     </div>
 </body>
 
